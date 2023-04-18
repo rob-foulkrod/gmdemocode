@@ -1,10 +1,18 @@
-﻿using System.Reflection;
+﻿
+
+//At the console prior to running this, run the following commands:
+// dotnet add package Microsoft.Azure.Cosmos
+// dotnet add package Microsoft.Extensions.Configuration.UserSecrets
+// dotnet user-secrets init
+// dotnet user-secrets set CosmosDBKey "your key here"
+
+using System.Reflection;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Extensions.Configuration;
 
 Console.WriteLine("Hello Cosmos!");
 
-var uri = "https://projectzen.documents.azure.com:443/";
+var uri = "https://projectzen.documents.azure.com:443/"; //Update this to your CosmosDB URI
 var key = GetSecret("CosmosDBKey");
 
 var client = new CosmosClient(uri, key);
